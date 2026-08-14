@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: freefire-follow-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: BMW_API_URL
+        value: http://187.127.175.208:5001/Bmw
+      - key: TOKEN_REFRESH_INTERVAL
+        value: 14400
+      - key: MAX_WORKERS
+        value: 20
